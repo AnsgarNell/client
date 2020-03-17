@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Hero Form</h1>
+  <form #nameForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nameField">Name</label>
+      <input type="text" class="form-control" id="nameField"
+             required
+             [(ngModel)]="name" name="nameField">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
