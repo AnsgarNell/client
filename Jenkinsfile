@@ -1,10 +1,12 @@
 node {
+    stage('Pull repository') {
+        checkout scm
+    }
+}
+node {
     stage('Build ng image') {
         def customNodeImage = docker.build "node-with-ng"
         customNodeImage.inside {
-            stage('Pull repository') {
-                checkout scm
-            }
             stage('Install npm') {
                 sh 'npm install'
             }
