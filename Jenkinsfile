@@ -24,7 +24,7 @@ node {
         unstash 'distFolder'
     }
     stage('Build Docker image') {
-        def customImage = docker.build("(yourrepositoryname)/basic-client", "-f ./dockerfiles/nginx/Dockerfile .")
+        def customImage = docker.build("ansgarnell/basic-client", "-f ./dockerfiles/nginx/Dockerfile .")
         stage('Push Docker image') {
             docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                 customImage.push("$BUILD_NUMBER")
